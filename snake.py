@@ -47,6 +47,18 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+        
+    """Move to the new position of the vector just 1 space."""
+        
+    directions = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
+    move_direction = directions[randrange(4)]
+
+    new_food_position = food + move_direction
+
+
+    if inside(new_food_position):
+        food.move(move_direction)
+
 
     clear()
 
