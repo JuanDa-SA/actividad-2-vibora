@@ -47,6 +47,15 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+    """Creation of a vector of directions that moves one space and select randomly to add to the latest variable of food """
+    directions = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
+    move = directions[randrange(4)]
+
+    new_food = food + move
+
+
+    if inside(new_food):
+        food.move(move)
 
     clear()
 
